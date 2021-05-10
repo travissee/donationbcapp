@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<!-- Tab Title -->
+<title>Peace of Giving</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Favicon Image -->
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<!-- W3 CSS Style -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Style Library -->
+<style>
+body {font-family: "Times New Roman", Georgia, Sans-serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+/* Add text stroke effect */
+.stroke{
+  -webkit-text-stroke: 0.5px black;
+}
+/* Enable scroll for text overflow and append ellipsis at end */
+.overflow-ellipsis {
+  overflow-y: scroll;
+  text-overflow: ellipsis;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hidescroll::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.hidescroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.cellheight1 {
+  height: 90px;
+}
+.cellheight2 {
+  height: 60px;
+}
+.cellheight3 {
+  height: 250px;
+}
+</style>
+
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button w3-ripple" style="letter-spacing:4px;">Peace of Giving</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small" style="letter-spacing:2px;">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#donate" class="w3-bar-item w3-button w3-ripple">Donate</a>
+      <a href="#redeem" class="w3-bar-item w3-button w3-ripple">Redeem</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-ripple">Contact</a>
+      <!-- CONSIDER MAKING ACCOUNT BUTTON DISABLED IF METAMASK NOT LINKED -->
+      <button onclick="document.getElementById('account').style.display='block'" class="w3-bar-item w3-button w3-ripple acct-btn" style="letter-spacing:2px;">Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<!-- Using Display Container as text is overlaid on image -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="/images/banner.jpg" alt="Banner" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-xxlarge stroke">Someone’s happiness depends upon your donation</h1>
+  </div>
+</header>
+
+<!-- Account Modal -->
+<div id="account" class="w3-modal">
+  <div class="w3-modal-content w3-animate-right">
+    <div class="w3-container w3-pale-blue w3-display-container">
+      <!-- Close Button -->
+      <span onclick="document.getElementById('account').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <button class="w3-button w3-circle w3-text-black w3-hover-none w3-right w3-large web3-btn" style="padding-top: 10px; padding-right: 45px;"><b>+</b></button>
+      <h2>Account Details</h2><br>  
+    </div>
+    <div class="w3-container">
+      <p class="w3-large">Wallet Address: <b><span class="w3-xlarge " id="acct-wallet">Connect to your account by clicking + above</span></b></p>
+      <p class="w3-large">ETH Balance: <b><span class="w3-xlarge"><span id="acct-eth">Connect to your account by clicking + above</span></b></p>
+      <p class="w3-large">Donation Made: <b><span class="w3-xlarge"><span id="acct-tdonation">Connect to your account by clicking + above</span></b></p>
+      <p class="w3-large">POG Balance: <b><span class="w3-xlarge" id="acct-bal">Connect to your account by clicking + above</span></b></p>
+      <p class="w3-large">POG Redeemed: <b><span class="w3-xlarge" id="acct-redmn">Connect to your account by clicking + above</span></b></p>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="/images/about.jpg" class="w3-round w3-image" alt="About PoG" width="600" height="615">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Peace of Giving</h1><br>
+      <h5 class="w3-center">Giving is the best therapy</h5>
+      <p class="w3-large">Peace of Giving was founded in Singapore by John and Jane who were active members of the local charity community. Together with their interest in blockchain technology, they aspired to create a platform for donators to donate without borders and allow the charities to receive the donation instantly.</p>
+      <p class="w3-large">Please note that <b><span id="fee">1</span>%</b> of the donation will be used to maintain the operations of this service.</p>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <!-- Donate Section -->
+  <div class="w3-row w3-padding-64" id="donate">
+    <h1 class="w3-center">Donation</h1>
+    <div id="donateRow">
+    <!-- DONATE LOAD HERE -->
+    </div>
+  </div>
+
+  <div id="donateTemplate" style="display: none;">
+    <div class="w3-col m4 w3-padding-large">
+      <div class="w3-row">
+        <img src="/images/about.jpg" class="w3-round w3-image" alt="Donation Project" style="width:100%">
+      </div>
+      <div class="w3-row cellheight1">
+        <h3 class="donation-title">Project Name</h3>
+      </div>
+      <div class="w3-right-align w3-large cellheight2 donation-name">Organization Name</div>
+      <p class="w3-text-grey cellheight3 overflow-ellipsis hidescroll donation-desc">Description Text</p>
+      <div class="w3-center">
+
+        <form class="donation-form" id="0" onsubmit="App.handleDonation(event)">
+          <div class="w3-large">
+            Donation Amount (USD):<br><input class="input w3-border w3-round donation-text" donation-id type="text" size="10" placeholder="E.g. 10">
+            <p style="margin-top: 7px; margin-bottom: 0px;"></p>
+            <button class="w3-button w3-pale-blue w3-hover-blue w3-round-xxlarge w3-large w3-border w3-ripple">Donate</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Redeem Section -->
+  <div class="w3-row w3-padding-64" id="redeem">
+    <h1 class="w3-center">Redemption</h1>
+    <div id="redeemRow">
+      <!-- REDEEM LOAD HERE -->
+    </div>
+  </div>
+
+  <div id="redeemTemplate" style="display: none;">
+    <div class="w3-row w3-padding-large">
+      <div class="w3-col m4 w3-padding-large">
+        <img src="/images/redemption0.jpg" class="w3-round w3-image" alt="Redemption Item" style="width:100%">
+      </div>
+      <div class="w3-col m8 w3-padding-med">
+        <h3 class="redemption-title"><b>$25 Gift Card</b></h3>
+        <h5 class="w3-text-grey redemption-org"><b>Starbucks</b></h5>
+        <button class="w3-button w3-white w3-border w3-border-teal w3-hover-green w3-round-xxlarge w3-large w3-ripple redemption-btn" data-pog="0">Redeem</button>
+        <p>With <b><span class="w3-text-green redemption-value">50</span></b> POG</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Contact Section -->
+  <div class="w3-content w3-container w3-padding-64" id="contact">
+    <h3 class="w3-center">WHERE WE WORK</h3>
+    <p class="w3-center"><em>We'd love your feedback!</em></p>
+  
+    <div class="w3-row w3-padding-32 w3-section">
+      <div class="w3-col m4 w3-container">
+        <img src="/images/map.jpg" class="w3-image w3-round" alt="Contact PoG" style="width:100%">
+      </div>
+      <div class="w3-col m8 w3-panel">
+        <div class="w3-large w3-margin-bottom">
+          <i class="fa fa-map-marker fa-fw w3-hover-text-grey w3-xlarge w3-margin-right"></i> 5 Ang Mo Kio Street 64, 569085, Singapore<br>
+          <i class="fa fa-phone fa-fw w3-hover-text-grey w3-xlarge w3-margin-right"></i> +65 1234 5678<br>
+          <i class="fa fa-envelope fa-fw w3-hover-text-grey w3-xlarge w3-margin-right"></i> peaceofgiving@gmail.com<br>
+        </div>
+        <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave us a note:</p>
+        <form action="/action_page.php" target="_blank">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+          <button class="w3-button w3-black w3-right w3-section" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+<!-- End page content -->
+</div>
+
+<!-- Developer Modal -->
+<div id="developer" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+    <header class="w3-container w3-pale-blue">
+     <!-- Close Button -->
+     <span onclick="document.getElementById('developer').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+     <button class="w3-button w3-circle w3-text-black w3-hover-none w3-right w3-large web3-btn" style="padding-top: 10px; padding-right: 45px;"><b>+</b></button>
+     <h2>Owner / Charity Functions</h2>
+    </header>
+    
+    <div class="w3-bar w3-border-bottom">
+     <button class="tablink w3-bar-item w3-button" onclick="openTab(event, 'Owner')">Owner</button>
+     <button class="tablink w3-bar-item w3-button" onclick="openTab(event, 'Charity')">Charity</button>
+    </div>
+  
+    <div id="Owner" class="w3-container tab">
+      <p class="w3-large">ETH Balance in Contract: <b><span class="w3-xlarge" id="contract-deth">Connect to your account by clicking + above</span></b>
+        <button class="w3-button w3-orange w3-border w3-hover-deep-orange w3-round-xxlarge w3-medium w3-ripple w3-right withdraw-btn">Withdraw</button>
+      </p>
+      <p class="w3-large">Show all charities' addresses
+        <button class="w3-button w3-orange w3-border w3-hover-deep-orange w3-round-xxlarge w3-medium w3-ripple w3-right charity-btn">Show</button>
+      </p>
+      <p class="w3-large">Show current Fee Rate
+        <button class="w3-button w3-orange w3-border w3-hover-deep-orange w3-round-xxlarge w3-medium w3-ripple w3-right fee-btn">Show</button>
+      </p>
+      <p>
+      <form onsubmit="App.handleAddCharity()">
+        <div class="w3-large">
+          Add Charity: <input class="input w3-border w3-round" id="addcharity-text" type="text" size="42" placeholder="E.g. 0x70e1895a50Ad0fABE88be94F6d0f7408B0FE845a"><button class="w3-button w3-orange w3-border w3-hover-deep-orange w3-round-xxlarge w3-medium w3-ripple w3-right">Add</button>
+      </div>
+      </form>
+      </p>
+      <p>
+        <form onsubmit="App.handleChangeFee()">
+          <div class="w3-large">
+            Change Fee Rate: <input class="input w3-border w3-round" id="changefee-text" type="text" size="3" placeholder="E.g. 5"><button class="w3-button w3-orange w3-border w3-hover-deep-orange w3-round-xxlarge w3-medium w3-ripple w3-right">Change</button>
+        </div>
+        </form>
+        </p>
+    </div>
+  
+    <div id="Charity" class="w3-container tab">
+      <p class="w3-large">ETH Balance in Contract: <b><span class="w3-xlarge" id="contract-ceth">Connect to your account by clicking + above</span></b>
+        <button class="w3-button w3-orange w3-border w3-hover-deep-orange w3-round-xxlarge w3-medium w3-ripple w3-right withdraw-btn" data-value="0">Withdraw</button>
+      </p>
+    </div>
+
+   </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <button onclick="document.getElementById('developer').style.display='block'" class="w3-button w3-circle w3-text-black w3-ripple developer-btn">+</button>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->  
+<script src="js/web3.min.js"></script>
+<script src="js/truffle-contract.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+  document.getElementsByClassName("tablink")[0].click();
+  
+  function openTab(evt, cityName) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("tab");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < x.length; i++) {
+      tablinks[i].classList.remove("w3-light-grey");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.classList.add("w3-light-grey");
+  }
+  </script>
+
+</body>
+</html>

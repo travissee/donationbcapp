@@ -1,0 +1,21 @@
+[
+    {
+      "iname": "$25 Gift Card",
+      "oname": "Starbucks",
+      "picture": "images/redemption0.jpg",
+      "cost": 50
+    },
+    {
+        "iname": "Apple AirPods Pro",
+        "oname": "Apple",
+        "picture": "images/redemption1.jpg",
+        "cost": 700
+    },
+    {
+        "iname": "Haircut and Korean Gloss Treatment",
+        "oname": "Salon Vim",
+        "picture": "images/redemption2.jpg",
+        "cost": 800
+    }
+  ]
+  
